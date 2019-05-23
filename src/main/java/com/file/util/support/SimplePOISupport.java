@@ -111,9 +111,20 @@ public class SimplePOISupport implements ExcelUtil {
     private void createSheet(Collection sheetHeaders, Collection sheetDatas, Sheet sheet, CellStyle headerCss, CellStyle dataCss) {
         Integer rowIndex = 0;
         rowIndex = pushDataToSheet(sheetHeaders, sheet, headerCss, rowIndex);//创建表头行
+        setColWidth(sheet, sheetHeaders);
         pushDataToSheet(sheetDatas, sheet, dataCss, rowIndex);//创建数据行
     }
 
+    private void setColWidth(Sheet sheet, Collection datas) {
+        int i = 0;
+        for (Object data : datas) {
+            if (data != null) {
+                sheet.setColumnWidth(i, data.toString().getBytes().length * 256);
+            }
+            i++;
+        }
+//                设置表头列宽
+    }
 
     //放入data到sheet
     private Integer pushDataToSheet(Collection sheetDatas, Sheet sheet, CellStyle css, Integer rowIndex) {
