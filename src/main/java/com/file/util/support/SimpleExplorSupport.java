@@ -27,7 +27,7 @@ import com.file.util.ExcelUtil;
  * @create: 2019-05-22 16:25
  * @email: kangzans@163.com
  **/
-public class SimplePOISupport implements ExcelUtil {
+public class SimpleExplorSupport implements ExcelUtil {
 
     private Collection[] datas;
     private String[] sheet_names;
@@ -153,7 +153,10 @@ public class SimplePOISupport implements ExcelUtil {
         Field[] fs = dataClass.getDeclaredFields();
         List<Object> cellDatas = new ArrayList<Object>();
         for (int i = 0; i < fs.length; i++) {
-            /*设置只渲染非private字段，有点问题，待修改优化*/
+            /*设置只渲染非private字段，有点问题，待修改优化
+             * getDeclaredFields   获取所有字段
+             * getFields     获取公用字段
+             * */
 //            if (acess_private) {
 //            fs[i].setAccessible(true)
 //            } else {
