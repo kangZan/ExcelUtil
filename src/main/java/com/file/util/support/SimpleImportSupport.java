@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 /**
  * @program: ExcelUtil
- * @description:简单excel导出的hutool支持
+ * @description:简单excel导入的支持
  * @author: zan.Kang
  * @create: 2019-05-24 08:38
  **/
